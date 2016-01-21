@@ -1,0 +1,5 @@
+.idea
+*.pyc
+venv_admin_material
+admin_material/settings_local.py
+db.sqlite3
