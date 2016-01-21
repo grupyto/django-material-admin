@@ -1,0 +1,92 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static material_tags %}
+
+{% block extrastyle %}
+    {{ block.super }}
+{#    <link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}"/>#}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+
+{% block branding %}{% endblock %}
+
+{% block content %}
+    <div class="mdl-card mdl-shadow--2dp" style="margin: 0 auto; width: 800px; height: auto; margin-top: 10px;">
+        <form action="{{ app_path }}" method="post" id="login-form">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">
+                    {{ site_header|default:_('Django administration') }}
+                </h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                {% csrf_token %}
+
+                {% if form.errors and not form.non_field_errors %}
+                    <p class="errornote">
+                        {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}
+                            {% trans "Please correct the errors below." %}{% endif %}
+                    </p>
+                {% endif %}
+
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="errornote">
+                            {{ error }}
+                        </p>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="mdl-grid">
+                    <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+                        {{ form.username|addcss:"mdl-textfield__input" }}
+                        <label class="mdl-textfield__label" for="id_{{form.username.name}}">
+                            {{ form.username.label }}
+                        </label>
+                        {#                {{ form.username.label_tag }}#}
+                        {{ form.username.errors }}
+                    </div>
+                </div>
+
+                <div class="mdl-grid">
+                    <div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
+                        {{ form.password|addcss:"mdl-textfield__input" }}
+                        <label class="mdl-textfield__label" for="id_{{form.password.name}}">
+                            {{ form.password.label }}
+                        </label>
+                        {#                {{ form.password.label_tag }}#}
+                        <input class="mdl-textfield__input" type="hidden" name="next" value="{{ next }}"/>
+                        {{ form.password.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                {% url 'admin_password_reset' as password_reset_url %}
+                {% if password_reset_url %}
+                    <div class="password-reset-link">
+                        <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+                    </div>
+                {% endif %}
+                <div class="submit-row">
+                    <label>&nbsp;</label>
+                    <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                           type="submit" value="{% trans 'Log in' %}"/>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+    <script type="text/javascript">
+        document.getElementById('id_username').focus()
+    </script>
+{% endblock %}
