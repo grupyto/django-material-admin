@@ -100,6 +100,40 @@ html, body {
     margin-right: 32px;
 }
 
+.demo-navigation .gui-controls {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.demo-navigation .gui-controls .gui-folder {
+    list-style: none;
+}
+
+.demo-navigation .gui-controls .gui-folder .mdl-navigation__link {
+    padding-left: 10px;
+}
+
+.demo-navigation .gui-controls .gui-folder .gui-controls-interno {
+    padding: 0;
+}
+
+.demo-navigation .gui-controls .gui-folder .gui-controls-interno .gui-folder-interno {
+    list-style: none;
+    padding: 8px 5px 8px 0;
+
+}
+
+.demo-navigation .gui-controls .gui-folder .gui-controls-interno .gui-folder-interno .gui-link-interno {
+    margin-left: 40px;
+    color: rgba(255, 255, 255, 0.56);
+    width: 100%;
+    height: 100%;
+}
+
+.demo-navigation .gui-controls .gui-folder .gui-controls-interno .gui-folder-interno .gui-link-interno:hover {
+    color: #37474F;
+}
+
 .demo-content {
     max-width: 1080px;
 }
@@ -217,4 +251,31 @@ _:-ms-input-placeholder, :root .demo-graph {
 
 a {
    text-decoration: none;
+}
+
+.error-messages {
+    border-left: solid 3px rgba(255, 3, 0, 0.71);
+}
+
+.errorlist {
+    list-style: none;
+    color: rgba(255, 3, 0, 0.71);
+    margin: -20px 0 0 0;
+    padding-left: 0;
+}
+
+.info-messages {
+    border-left: solid 3px rgba(0, 79, 255, 0.71);
+}
+
+.success-messages {
+    border-left: solid 3px rgba(0, 201, 13, 0.71);
+}
+
+.note {
+    margin: 10px 0;
+}
+
+.mdl-grid h6 {
+    margin: 16px 10px;
 }

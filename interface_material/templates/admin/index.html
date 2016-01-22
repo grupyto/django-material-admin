@@ -10,43 +10,69 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
-<div id="content-main">
+    <div id="content-main">
 
-{% if app_list %}
-    {% for app in app_list %}
-        <div class="app-{{ app.app_label }} module">
-        <table>
-        <caption>
-            <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>
-        </caption>
-        {% for model in app.models %}
-            <tr class="model-{{ model.object_name|lower }}">
-            {% if model.admin_url %}
-                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
-            {% else %}
-                <th scope="row">{{ model.name }}</th>
-            {% endif %}
+{#    {% if app_list %}#}
+{#        {% for app in app_list %}#}
+{#            <div class="app-{{ app.app_label }} module">#}
+{#            <table>#}
+{#            <caption>#}
+{#                <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">{{ app.name }}</a>#}
+{#            </caption>#}
+{#            {% for model in app.models %}#}
+{#                <tr class="model-{{ model.object_name|lower }}">#}
+{#                {% if model.admin_url %}#}
+{#                    <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>#}
+{#                {% else %}#}
+{#                    <th scope="row">{{ model.name }}</th>#}
+{#                {% endif %}#}
+{#    #}
+{#                {% if model.add_url %}#}
+{#                    <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>#}
+{#                {% else %}#}
+{#                    <td>&nbsp;</td>#}
+{#                {% endif %}#}
+{#    #}
+{#                {% if model.admin_url %}#}
+{#                    <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>#}
+{#                {% else %}#}
+{#                    <td>&nbsp;</td>#}
+{#                {% endif %}#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#            </table>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#    {% else %}#}
+{#        <p>{% trans "You don't have permission to edit anything." %}</p>#}
+{#    {% endif %}#}
 
-            {% if model.add_url %}
-                <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
 
-            {% if model.admin_url %}
-                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-            {% endif %}
-            </tr>
-        {% endfor %}
-        </table>
-        </div>
-    {% endfor %}
-{% else %}
-    <p>{% trans "You don't have permission to edit anything." %}</p>
-{% endif %}
-</div>
+        Silvio Santos Ipsum ma o Silvio Santos Ipsum é muitoam interesanteam. Com ele ma você vai gerar textuans ha haae. Ma você, topa ou não topamm. Mah você não consegue né Moisés? Você não consegueam. Patríciaaammmm... Luiz Ricardouaaammmmmm. Mah roda a roduamm. Ma você está certo dissoam? Mah ooooee vem pra cá. Vem pra cá. É por sua conta e riscoamm? É fácil ou não éam?
+        Ma vai pra lá. Ma quem quer dinheiroam? O prêmio é em barras de ouro, que vale mais que dinheiroam. Mah roda a
+        roduamm.
+
+        Estamos em ritmo de festamm. Mah é a porta da esperançaam. Vem pra lá, mah você vai pra cá. Agora vai, agora vem
+        pra láamm. Ma vai pra lá. Valendo um milhão de reaisammm. Mah você mora com o papai ou com a mamãem? Ma o Silvio
+        Santos Ipsum é muitoam interesanteam. Com ele ma você vai gerar textuans ha haae. Ma você está certo dissoam?
+
+        Vem pra lá, mah você vai pra cá. Agora vai, agora vem pra láamm. Boca sujuam... sem vergonhuamm.
+        Patríciaaammmm... Luiz Ricardouaaammmmmm. Ma! Ao adquirir o carnê do Baú, você estará concorrendo a um prêmio de
+        cem mil reaisam. Mah roda a roduamm. Eu não queria perguntar isso publicamente, ma vou perguntar. Carla, você
+        tem o ensino fundamentauam? Você veio da caravana de ondeammm? É por sua conta e riscoamm? O Raul Gil é gayam!
+        ... Maa O Ah Ae! Ih Ih! O Raul Gil é gayamm!
+
+        O prêmio é em barras de ouro, que vale mais que dinheiroam. Ma você está certo dissoam? É fácil ou não éam? Mah
+        roda a roduamm. O Raul Gil é gayam! ... Maa O Ah Ae! Ih Ih! O Raul Gil é gayamm! Ma você, topa ou não topamm.
+        Mah você não consegue né Moisés? Você não consegueam. É fácil ou não éam? É namoro ou amizadeemm? É dinheiro ou
+        não éam? Ma vai pra lá. Estamos em ritmo de festamm. Mah você não consegue né Moisés? Você não consegueam.
+
+        Ma vai pra lá. Wellintaaammmmmmmmm. Ma vale dérreaisam? Estamos em ritmo de festamm. Ma o Silvio Santos Ipsum é
+        muitoam interesanteam. Com ele ma você vai gerar textuans ha haae. Mah você mora com o papai ou com a mamãem?
+        Wellintaaammmmmmmmm. O arriscam tuduam, valendo um milhão de reaisuam. Ma vale dérreaisam? Patríciaaammmm...
+        Luiz Ricardouaaammmmmm. É dinheiro ou não éam?
+
+    </div>
 {% endblock %}
 
 {% block sidebar %}
