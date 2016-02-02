@@ -1,9 +1,6 @@
 from django.contrib.admin.sites import site
 from django.utils.text import capfirst
 from django.utils.safestring import mark_safe
-from django.conf import settings
-from django.contrib import admin
-from operator import itemgetter
 
 
 def applist(request):

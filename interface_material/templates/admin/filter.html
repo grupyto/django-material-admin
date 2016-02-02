@@ -1,8 +1,16 @@
 {% load i18n %}
-<h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
-<ul>
-{% for choice in choices %}
-    <li{% if choice.selected %} class="selected"{% endif %}>
-    <a href="{{ choice.query_string|iriencode }}">{{ choice.display }}</a></li>
-{% endfor %}
+
+<button id="menu_{{ title }}" class="mdl-button mdl-js-button">
+    {% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}
+    <i class="fa fa-chevron-down"></i>
+</button>
+
+<ul class="filtro-change_list mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu_{{ title }}">
+    {% for choice in choices %}
+        <a href="{{ choice.query_string|iriencode }}">
+            <li class="mdl-menu__item {% if choice.selected %}selected{% endif %}">
+                {{ choice.display }}
+            </li>
+        </a>
+    {% endfor %}
 </ul>
