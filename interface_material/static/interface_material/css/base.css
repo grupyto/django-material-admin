@@ -77,6 +77,10 @@ html, body {
     width: 100%;
 }
 
+#content-main {
+    width: 100%;
+}
+
 .demo-navigation {
     flex-grow: 1;
 }
@@ -135,7 +139,7 @@ html, body {
 }
 
 .demo-content {
-    max-width: 1080px;
+    /*max-width: 1080px;*/
 }
 
 .demo-charts {
@@ -303,4 +307,53 @@ a {
 .filtro-change_list {
     max-height: 500px;
     overflow-y: auto
+}
+
+#changelist-filter {
+    float: left;
+}
+
+.object-tools {
+    float: right;
+    padding:0;
+	margin:0;
+    list-style:none;
+}
+
+.object-tools li {
+    display: inline;
+}
+
+.object-tools li a {
+    display: inline-block;
+    padding: 2px 10px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.mdl-button i {
+    font-size: 18px;
+}
+
+.input-search {
+    width: calc(100% - 70px) !important;
+}
+
+.results {
+    overflow-x: auto;
+}
+
+.result_list {
+    width: 100%;
+}
+
+.mdl-data-table {
+    border: 0;
+    margin-bottom: 15px;
+}
+
+.mdl-data-table td, .mdl-data-table th {
+    text-align: center;
 }

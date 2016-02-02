@@ -30,3 +30,8 @@ def disabled(field):
 @register.filter(name='is_checkbox')
 def is_checkbox(field):
   return field.field.widget.__class__.__name__ == CheckboxInput().__class__.__name__
+
+
+@register.filter(name='nospace')
+def nospace(text):
+    return text.replace(' ', '_')
