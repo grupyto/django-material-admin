@@ -27,8 +27,14 @@
         </div>
     {% endblock %}
 {% endif %}
-
-{% block content %}
+{% block card-title %}{% if add %}{% trans 'Add' %} {{ opts.verbose_name }}{% else %}{{ original|truncatewords:"18" }}{% endif %}{% endblock %}
+{% block card-menu-title %}
+{% if has_change_permission %}
+<a href="{% url opts|admin_urlname:'changelist' %}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+    Cancelar</a>{% else %}
+    {{ opts.verbose_name_plural|capfirst }}{% endif %}
+{% endblock %}
+{% block card-content %}
     <div id="content-main">
         {% block object-tools %}
             {% if change %}{% if not is_popup %}

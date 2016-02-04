@@ -50,7 +50,9 @@
 
 {% block coltype %}flex{% endblock %}
 
-{% block content %}
+{% block card-title %}{{ cl.opts.verbose_name_plural|capfirst }}{% endblock %}
+
+{% block card-content %}
     <div id="content-main">
 
         {% block filters %}
@@ -106,28 +108,25 @@
 
             <form id="changelist-form" action="" method="post"{% if cl.formset.is_multipart %} enctype="multipart/form-data"{% endif %} novalidate>
                 {% csrf_token %}
-
                 {% if cl.formset %}
                     <div>{{ cl.formset.management_form }}</div>
                 {% endif %}
 
                 {% block result_list %}
-
                     {% result_list cl %}
-
                     {% if action_form and actions_on_top and cl.show_admin_actions %}
                         {% admin_actions %}
                     {% endif %}
-
                     {% if action_form and actions_on_bottom and cl.show_admin_actions %}
                         {% admin_actions %}
                     {% endif %}
                 {% endblock %}
-
                 {% block pagination %}
                     {% pagination cl %}
                 {% endblock %}
             </form>
         </div>
     </div>
+{% endblock %}
+{% block card-action-bar %}
 {% endblock %}
