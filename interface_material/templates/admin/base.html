@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-blue.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="{% static 'interface_material/css/base.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">        
 
         {# Font Awesome #}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -207,7 +208,9 @@
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
                             {% block card-action-bar %}{% endblock %}
-                            {% now "d \d\e  F \d\e Y \- H:i" %}                            
+                            <span class="float-right span-date">
+                                {% now "d \d\e  F \d\e Y \- H:i" %}
+                            </span>
                         </div>
                     </div>
                 </div>

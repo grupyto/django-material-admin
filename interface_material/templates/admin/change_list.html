@@ -51,7 +51,15 @@
 {% block coltype %}flex{% endblock %}
 
 {% block card-title %}{{ cl.opts.verbose_name_plural|capfirst }}{% endblock %}
-
+{% block card-menu-title %}
+    {% if has_add_permission %}
+        {% url cl.opts|admin_urlname:'add' as add_url %}
+        <a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <i class="fa fa-plus-square"> </i>
+            {{ cl.opts.verbose_name|capfirst }}
+        </a>
+    {% endif %}
+{% endblock %}
 {% block card-content %}
     <div id="content-main">
 
@@ -66,22 +74,21 @@
             {% endif %}
         {% endblock %}
 
-        {% block object-tools %}
-            {% if has_add_permission %}
-                <ul class="object-tools">
-                    {% block object-tools-items %}
-                        <li>
-                            {% url cl.opts|admin_urlname:'add' as add_url %}
-
-                            <a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                <i class="fa fa-plus-square"></i>
-                                {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
-                            </a>
-                        </li>
-                    {% endblock %}
-                </ul>
-            {% endif %}
-        {% endblock %}
+        {# % block object-tools %#}
+            {# {% if has_add_permission %}#}
+                <!-- ul class="object-tools" -->
+                    {# {% block object-tools-items %}#}
+                        <!--li-->
+                            {# {% url cl.opts|admin_urlname:'add' as add_url %}#}
+                            <!-- a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                <i class="fa fa-plus-square"> </i -->
+                                {# {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}#}
+                            <!--/a>
+                        </li-->
+                    {# {% endblock %}#}
+                <!--/ul-->
+            {# {% endif %}#}
+        {# {% endblock %}#}
 
         <div class="clearfix"></div>
 
