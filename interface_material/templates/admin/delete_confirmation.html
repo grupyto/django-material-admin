@@ -12,8 +12,10 @@
 &rsaquo; {% trans 'Delete' %}
 </div>
 {% endblock %}
-
-{% block content %}
+{% block card-title %}
+{% blocktrans with escaped_object=object %}Deleting the {{ object_name }} '{{ escaped_object }}' would result in deleting related objects, but your account doesn't have permission to delete the following types of objects:{% endblocktrans %}
+{% endblock %}
+{% block card-content %}
 {% if perms_lacking %}
     <p>{% blocktrans with escaped_object=object %}Deleting the {{ object_name }} '{{ escaped_object }}' would result in deleting related objects, but your account doesn't have permission to delete the following types of objects:{% endblocktrans %}</p>
     <ul>
@@ -38,8 +40,8 @@
     <input type="hidden" name="post" value="yes" />
     {% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1" />{% endif %}
     {% if to_field %}<input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}" />{% endif %}
-    <input type="submit" value="{% trans "Yes, I'm sure" %}" />
-    <a href="#" onclick="window.history.back(); return false;" class="button cancel-link">{% trans "No, take me back" %}</a>
+    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent danger">{% trans "Yes, I'm sure" %}</button>
+    <a href="{% url opts|admin_urlname:'changelist' %}" onclick="window.history.back(); return false;" class="cancel-link mdl-button mdl-js-button mdl-button--raised mdl-button--colored">{% trans "No, take me back" %}</a>
     </div>
     </form>
 {% endif %}
