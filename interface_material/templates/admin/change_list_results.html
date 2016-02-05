@@ -7,7 +7,7 @@
 {% endif %}
 
 {% if results %}
-    <div class="results">
+    <div class="results" class="line-spacing">
 
 {#        <table class="result_list mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">#}
                {# class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"#}
@@ -54,7 +54,7 @@
                         </tr>
                     {% endif %}
                     <tr class="{% cycle 'row1' 'row2' %}">
-                        {% for item in result %}                        
+                        {% for item in result %}
                             {{ item }}
                         {% endfor %}
                     </tr>

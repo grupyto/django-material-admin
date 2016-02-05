@@ -18,6 +18,16 @@ html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
+.clear{
+    /*CSS para limpar as margens paddings spacamentos efeitos de texto*/
+    margin: 0 !important;
+    padding: 0 !important;
+    text-decoration: none !important;
+}
+.line-spacing{
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
+}
 .demo-avatar {
     width: 48px;
     height: 48px;
@@ -409,12 +419,12 @@ div.actions{
 div.actions > button{
     height: 25px;
     line-height: 25px;
+    margin-right: 10px;
 }
-div.actions:after {
+/*div.actions:after {
   position: absolute;
   top: 0.75em;
   right: 0.5em;
-  /* Styling the down arrow */
   width: 0;
   height: 0;
   padding: 0;
@@ -423,7 +433,7 @@ div.actions:after {
   border-right: .25em solid transparent;
   border-top: 0.375em solid rgba(0,0,0, 0.12);
   pointer-events: none;
-}
+}*/
 div.actions select{
     background-color: transparent;
     padding: 4px 0;
@@ -431,7 +441,7 @@ div.actions select{
     color: rgba(0,0,0, 0.45);
     border: none;
     margin-right: 15px;
-    margin-left: 8px;
+    margin-left: 20px;
     border-bottom: 1px solid rgba(0,0,0, 0.12);
 }
 
@@ -466,11 +476,13 @@ div.actions select{
     max-height: 500px;
     overflow-y: auto
 }
-
 #changelist-filter {
     float: left;
 }
 
+#changelist-filter button {
+    color: rgb(148, 148, 148);
+}
 .object-tools {
     float: right;
     padding:0;
@@ -515,7 +527,145 @@ div.actions select{
 .mdl-data-table td, .mdl-data-table th {
     text-align: center;
 }
-
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+    CSS PARA O COMPONENTE CHOICE DE  MULTIPLA ESCOLHA
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+div.selector-available{
+    background-color: pink;
+    float: left;
+}
+div.selector-chosen{
+    background-color: orange;
+    float: right;
+    margin-top: -25px;
+    margin-bottom: 10px;
+}
+div.selector-available, div.selector-chosen{
+    width: 40%;
+    padding-left: 8px;
+}
+div.selector-available h2, div.selector-chosen h2{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+div.selector-available a, div.selector-chosen a{
+    padding: 4px 9px;
+    line-height: 15px;
+    height: 20px !important;
+}
+#id_permissions_input{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    display: block;
+    font-size: 16px;
+    font-family: "Helvetica","Arial",sans-serif;
+    margin: 0;
+    padding: 4px 0;
+    width: 90%;
+    background: 0 0;
+    text-align: left;
+    color: inherit;
+}
+#id_permissions_filter > label{
+    display: none;
+}
+p.help{
+    display: block;
+    float: left;
+    margin-left: 0;
+}
+div.selector-available select[multiple=multiple], div.selector-chosen select[multiple=multiple]{
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 90%;
+    font-size: 14px;
+    margin-left: 5px;
+}
+ul.selector-chooser{
+    margin: 0;
+    padding: 0;
+    max-width: 10%;
+    margin-left: 45%;
+    display: list-item;
+}
+ul.selector-chooser li{
+    padding-top: 5px;
+    list-style: none;
+    float: left;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+                  CSS PARA A PAGINACAO
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+span#result-count{
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    display: inline;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    text-shadow: none;
+}
+.label-box, .label-success, .label-warning, .label-danger{
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    display: inline;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    text-shadow: none;
+}
+.label-success{
+    background-color: rgba(5, 5, 255, 0.6);
+}
+.label-warning{
+    background-color: rgba(255, 108, 47, 0.6);
+}
+.label-danger{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+                  CSS PARA OS formulários
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+div.form-row{
+    margin-top: 20px !important;
+    margin-bottom: 5px !important;
+}
 /*
 --------------------------------------------------------------
 --------------------------------------------------------------

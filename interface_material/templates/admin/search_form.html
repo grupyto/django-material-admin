@@ -1,9 +1,7 @@
 {% load i18n admin_static %}
 {% if cl.search_fields %}
-    <div id="toolbar">
-
+    <div id="toolbar" class="line-spacing">
         <form id="changelist-search" action="" method="get">
-
             <div class="input-search-container">
                 <div class="input-search mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" name="{{ search_var }}" value="{{ cl.query }}" id="searchbar"/>
@@ -17,19 +15,24 @@
             </div>
 
             {% if show_result_count %}
-                <span class="small quiet">
-                    {% blocktrans count counter=cl.result_count %}{{ counter }} result
-                        {% plural %}{{ counter }} results
-                    {% endblocktrans %}
-                    (<a href="?{% if cl.is_popup %}_popup=1{% endif %}">
-                        {% if cl.show_full_result_count %}
-                            {% blocktrans with full_result_count=cl.full_result_count %}
-                                {{ full_result_count }} total
-                            {% endblocktrans %}
-                        {% else %}
-                            {% trans "Show all" %}
-                        {% endif %}</a>)
-                </span>
+                <div class="mdl-grid mdl-grid--no-spacin clear line-spacing">
+                    <div class="mdl-cell mdl-cell--1-col"><h6 class="clear">
+                        {% blocktrans count counter=cl.result_count %}{{ counter }} result
+                            {% plural %}{{ counter }} results
+                        {% endblocktrans %}</h6>
+                    </div>
+                    <div class="mdl-cell">
+                        <a href="?{% if cl.is_popup %}_popup=1{% endif %}" class="mdl-button">
+                            {% if cl.show_full_result_count %}
+                                {% blocktrans with full_result_count=cl.full_result_count %}
+                                    {{ full_result_count }} total
+                                {% endblocktrans %}
+                            {% else %}
+                                {% trans "Show all" %}
+                            {% endif %}</a>
+                    </div>
+                </div>
+
             {% endif %}
 
             {% for pair in cl.params.items %}

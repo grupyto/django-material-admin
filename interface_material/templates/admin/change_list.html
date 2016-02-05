@@ -55,8 +55,7 @@
     {% if has_add_permission %}
         {% url cl.opts|admin_urlname:'add' as add_url %}
         <a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            <i class="fa fa-plus-square"> </i>
-            {{ cl.opts.verbose_name|capfirst }}
+            <i class="material-icons">add</i>
         </a>
     {% endif %}
 {% endblock %}
@@ -65,7 +64,7 @@
 
         {% block filters %}
             {% if cl.has_filters %}
-                <div id="changelist-filter">
+                <div id="changelist-filter" class="line-spacing">
                     <h7>{% trans 'Filter' %}</h7>
                     {% for spec in cl.filter_specs %}
                         {% admin_list_filter cl spec %}
