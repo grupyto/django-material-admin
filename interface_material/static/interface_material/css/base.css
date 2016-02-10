@@ -539,11 +539,9 @@ div.actions select{
 --------------------------------------------------------------
 */
 div.selector-available{
-    background-color: pink;
     float: left;
 }
 div.selector-chosen{
-    background-color: orange;
     float: right;
     margin-top: -25px;
     margin-bottom: 10px;
@@ -551,6 +549,13 @@ div.selector-chosen{
 div.selector-available, div.selector-chosen{
     width: 40%;
     padding-left: 8px;
+    min-height: 230px;
+    border: solid 1px rgba(0,0,0,.12);
+    border-radius: 2px;
+    background: rgba(0,0,0,.02);
+}
+div.selector-available select, div.selector-chosen select{
+    margin-bottom: 22px;
 }
 div.selector-available h2, div.selector-chosen h2{
     margin: 0;
@@ -561,6 +566,15 @@ div.selector-available a, div.selector-chosen a{
     padding: 4px 9px;
     line-height: 15px;
     height: 20px !important;
+}
+div.selector-available a.selector-chooseall, div.selector-chosen a.selector-clearall{
+    padding: 10px;
+    line-height: 15px;
+    color: #000;
+    border-radius: 2px;
+}
+div.selector-available a.selector-chooseall:hover, div.selector-chosen a.selector-clearall:hover{
+    background-color: rgba(0,0,0,.12);
 }
 #id_permissions_input{
     width: 80%;
