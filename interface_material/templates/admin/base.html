@@ -193,14 +193,16 @@
                     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" style="padding:0;">
                         <div class="mdl-card__title" style="background-color: #f8f8f8; margin:0 !important; display: block; width:100%;">
                             <div class="mdl-grid grid-no-margin">
-                              <div class="mdl-cell mdl-cell--11-col-desktop mdl-cell--8-col-tablet mdl-cell--3-col-phone">
+                              <div class="mdl-cell mdl-cell--11-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                                   <h2 class="mdl-card__title-text">
                                       {% block card-title %}{% endblock %}
                                   </h2>
                               </div>
-                              <div class="mdl-cell mdl-cell--1-col mdl-cell--4-col-tablet mdl-cell--2-col-phone float-right">
+                              {% if not is_popup %}
+                              <div class="mdl-cell mdl-cell--1-col mdl-cell--2-col-tablet mdl-cell--2-col-phone float-right">
                                   {% block card-menu-title %}{% endblock %}
                               </div>
+                              {% endif %}
                             </div>
                         </div>
                         <div class="mdl-card__supporting-text" style="width:100%;">

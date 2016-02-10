@@ -10,13 +10,13 @@
 &rsaquo; {% trans 'History' %}
 </div>
 {% endblock %}
+{% block card-title %}{% trans 'History' %} | {{ object }} {% endblock %}
 
-{% block content %}
-<div id="content-main">
-<div class="module">
+{% block card-content %}
+<div class="results line-spacing">
 
 {% if action_list %}
-    <table id="change-history">
+    <table id="change-history" class="result_list mdl-data-table mdl-js-data-table">
         <thead>
         <tr>
             <th scope="col">{% trans 'Date/time' %}</th>
@@ -37,6 +37,5 @@
 {% else %}
     <p>{% trans "This object doesn't have a change history. It probably wasn't added via this admin site." %}</p>
 {% endif %}
-</div>
 </div>
 {% endblock %}

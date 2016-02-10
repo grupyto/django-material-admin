@@ -21,7 +21,7 @@
                             {% plural %}{{ counter }} results
                         {% endblocktrans %}</h6>
                     </div>
-                    <div class="mdl-cell">
+                    <div class="mdl-cell mdl-cell--9-offset mdl-cell--2-col float-right">
                         <a href="?{% if cl.is_popup %}_popup=1{% endif %}" class="mdl-button">
                             {% if cl.show_full_result_count %}
                                 {% blocktrans with full_result_count=cl.full_result_count %}
