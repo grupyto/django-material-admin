@@ -127,12 +127,13 @@
                         {% admin_actions %}
                     {% endif %}
                 {% endblock %}
-                {% block pagination %}
-                    {% pagination cl %}
-                {% endblock %}
+                <!-- {% block pagination %}
+
+                {% endblock %} -->
             </form>
         </div>
     </div>
 {% endblock %}
 {% block card-action-bar %}
+{% pagination cl %}
 {% endblock %}

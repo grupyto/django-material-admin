@@ -18,6 +18,16 @@ html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
+.clear{
+    /*CSS para limpar as margens paddings spacamentos efeitos de texto*/
+    margin: 0 !important;
+    padding: 0 !important;
+    text-decoration: none !important;
+}
+.line-spacing{
+    margin-top: 8px !important;
+    margin-bottom: 4px !important;
+}
 .demo-avatar {
     width: 48px;
     height: 48px;
@@ -339,9 +349,8 @@ a {
 --------------------------------------------------------------
 --------------------------------------------------------------
 */
-/*#changelist-form > div.results > table > tbody > tr.row1.selected > td.action-checkbox > input*/
 table.result_list > tbody > tr.selected > td > input[type=checkbox]{
-    background: #3f51b5 url("interface_material\static\interface_material\img\svg\ic_check_black_24px.svg");
+    background: rgb(63, 81, 181) url("/static/interface_material/img/svg/ic_check_white_12px.svg");
 }
 table.result_list input[type=checkbox]{
     display: inline-block;
@@ -351,13 +360,11 @@ table.result_list input[type=checkbox]{
     margin: 0;
     cursor: pointer;
     overflow: hidden;
-    border: 2px solid rgba(0,0,0,.54);
+    border: 2px solid #3f51b5;
     border-radius: 2px;
     z-index: 2;
     background-color: none !important;
     -webkit-appearance:none;
-
-    background: 0 0;
     transition-duration: .28s;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-property: background;
@@ -411,12 +418,12 @@ div.actions{
 div.actions > button{
     height: 25px;
     line-height: 25px;
+    margin-right: 10px;
 }
-div.actions:after {
+/*div.actions:after {
   position: absolute;
   top: 0.75em;
   right: 0.5em;
-  /* Styling the down arrow */
   width: 0;
   height: 0;
   padding: 0;
@@ -425,7 +432,7 @@ div.actions:after {
   border-right: .25em solid transparent;
   border-top: 0.375em solid rgba(0,0,0, 0.12);
   pointer-events: none;
-}
+}*/
 div.actions select{
     background-color: transparent;
     padding: 4px 0;
@@ -433,7 +440,7 @@ div.actions select{
     color: rgba(0,0,0, 0.45);
     border: none;
     margin-right: 15px;
-    margin-left: 8px;
+    margin-left: 20px;
     border-bottom: 1px solid rgba(0,0,0, 0.12);
 }
 
@@ -468,11 +475,13 @@ div.actions select{
     max-height: 500px;
     overflow-y: auto
 }
-
 #changelist-filter {
     float: left;
 }
 
+#changelist-filter button {
+    color: rgb(148, 148, 148);
+}
 .object-tools {
     float: right;
     padding:0;
@@ -516,4 +525,259 @@ div.actions select{
 
 .mdl-data-table td, .mdl-data-table th {
     text-align: center;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+    CSS PARA O COMPONENTE CHOICE DE  MULTIPLA ESCOLHA
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+div.selector-available{
+    float: left;
+}
+div.selector-chosen{
+    float: right;
+    margin-top: -70px;
+    margin-bottom: 10px;
+}
+div.selector-available, div.selector-chosen{
+    width: 40%;
+    padding-left: 8px;
+    min-height: 230px;
+    border: solid 1px rgba(0,0,0,.12);
+    border-radius: 2px;
+    background: rgba(0,0,0,.02);
+}
+div.selector-available select, div.selector-chosen select{
+    margin-bottom: 22px;
+}
+div.selector-available h2, div.selector-chosen h2{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+div.selector-available a, div.selector-chosen a{
+    padding: 4px 9px;
+    line-height: 15px;
+    height: 20px !important;
+}
+div.selector-available a.selector-chooseall, div.selector-chosen a.selector-clearall{
+    padding: 10px;
+    line-height: 15px;
+    color: #000;
+    border-radius: 2px;
+}
+div.selector-available a.selector-chooseall:hover, div.selector-chosen a.selector-clearall:hover{
+    background-color: rgba(0,0,0,.12);
+}
+
+p.selector-filter label{
+    display: none;
+}
+p.selector-filter input[type=text]{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    display: block;
+    font-size: 16px;
+    font-family: "Helvetica","Arial",sans-serif;
+    margin: 0;
+    padding: 4px 0;
+    width: 90%;
+    background: 0 0;
+    text-align: left;
+    color: inherit;
+}
+p.help{
+    display: block;
+    float: left;
+    margin-left: 0;
+}
+div.selector-available select[multiple=multiple], div.selector-chosen select[multiple=multiple]{
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 90%;
+    font-size: 14px;
+    margin-left: 5px;
+}
+ul.selector-chooser{
+    margin: 0;
+    padding: 0;
+    width: 5%;
+    margin-left: 45%;
+    display: list-item;
+    list-style: none;
+}
+ul.selector-chooser li{
+    margin-bottom: 20px;
+    padding: 10px;
+    list-style: none;
+    float: left;
+    line-height: 25px;
+    border: solid 1px rgba(0,0,0,.12);
+    border-radius: 2px;
+    background: rgba(0,0,0,.02);
+}
+div.form-row.field-groups > div > label, div.form-row.field-user_permissions > div > label{
+    display: none;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+                  CSS PARA A PAGINACAO
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+span#result-count{
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    display: inline;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    text-shadow: none;
+}
+.label-box, .label-success, .label-warning, .label-danger{
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    display: inline;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    text-shadow: none;
+}
+.label-success{
+    background-color: rgba(5, 5, 255, 0.6);
+}
+.label-warning{
+    background-color: rgba(255, 108, 47, 0.6);
+}
+.label-danger{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+#ul-paginator{
+    margin: 0 5px;
+}
+#ul-paginator span, #ul-paginator a{
+    padding: 5px 8px;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0;
+}
+#ul-paginator span{
+    border-color: rgba(0, 176, 255, .4);
+    background-color: rgba(0, 176, 255, .05);
+}
+#ul-paginator a{
+    border-color: rgb(236, 239, 241);
+    background-color: rgba(236, 239, 241, .2);
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+                  CSS PARA OS formulários
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+div.form-row{
+    margin-top: 20px !important;
+    margin-bottom: 5px !important;
+}
+/*input[type=checkbox]{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid #3f51b5;
+    border-radius: 2px;
+    z-index: 2;
+    background-color: none !important;
+    -webkit-appearance:none;
+    transition-duration: .28s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-property: background;
+    margin-left: 10px; margin-right: 3px;
+}
+input[type=checkbox][checked=true]{
+    background: rgb(63, 81, 181) url("/static/interface_material/img/svg/ic_check_white_12px.svg");
+}*/
+
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+                  CSS PARA OS BOTÕES
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+button.danger{
+    color: white !important;
+    background-color: rgba(244, 67, 54, 0.9) !important;
+}
+div.related-widget-wrapper script ~ a{
+    border-radius: 50%;
+    padding: 17px 25px;
+}
+a[class="related-widget-wrapper-link add-related"], a[class="related-widget-wrapper-link change-related"]{
+    border: none;
+    margin-left: 37%;
+    z-index: 2;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
+    background-color: rgb(0, 176, 255);
+    background-image: url("/static/interface_material/img/png/ic_add_black_18dp.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+a[class="related-widget-wrapper-link change-related"]{
+    background-image: url("/static/interface_material/img/png/ic_mode_edit_black_18dp.png");
+    margin-right: 55px;
+}
+a[class="related-widget-wrapper-link add-related"] img, a[class="related-widget-wrapper-link change-related"] img{
+    display: none;
+}
+select:not([multiple=multiple]){
+    max-width: 92%;
+}
+select:not([multiple=multiple]) ~ a{
+    background-color: transparent !important;
+    float: right;
+    border-radius: 3px !imporant;
+    padding: 17px 25px;
+    margin-top: -40px;
+    z-index: 2;
+    margin-left: 5px;
+    box-shadow: none;
+}
+select:not([multiple=multiple]) ~ a:hover{
+    background-color: rgba(0, 0, 0, .12) !important;
 }

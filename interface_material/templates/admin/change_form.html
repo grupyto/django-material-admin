@@ -32,7 +32,8 @@
 {% if has_change_permission %}
 <a href="{% url opts|admin_urlname:'changelist' %}" class="mdl-button mdl-js-button mdl-js-ripple-effect">
     Cancelar</a>{% else %}
-    {{ opts.verbose_name_plural|capfirst }}{% endif %}
+    {{ opts.verbose_name_plural|capfirst }}
+{% endif %}
 {% endblock %}
 {% block card-content %}
     <div id="content-main">

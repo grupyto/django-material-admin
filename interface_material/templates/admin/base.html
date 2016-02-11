@@ -209,18 +209,23 @@
                             {% block card-content %}{% endblock %}
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            {% block card-action-bar %}{% endblock %}
-                            <span class="float-right span-date">
-                                {% now "d \d\e  F \d\e Y \- H:i" %}
-                            </span>
+                            <div class="mdl-grid mdl-grid-no-margin">
+                                <div class="mdl-cell--10-col">
+                                    {% block card-action-bar %}{% endblock %}
+                                </div>
+                                <div class="mdl-cell--2-col float-right">
+                                    <span class="float-right span-date">
+                                        {% now "d \d\e  F \d\e Y \- H:i" %}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </main>
         </div>
-
         {# JS Material Lite #}
-        <script src="{% static 'interface_material/js/jquery-1.12.0.min.js' %}"></script>
+        <script src="{% static 'admin/js/jquery.js' %}"></script>
         <script src="{% static 'interface_material/js/material.min.js' %}"></script>
         <script src="{% static 'interface_material/js/base.js' %}"></script>
         {% block extrajs %}{% endblock %}
