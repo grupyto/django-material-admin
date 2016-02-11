@@ -21,7 +21,7 @@
         </div>
         {% endif %}
         {% if show_delete_link %}
-        <div class="mdl-cell mdl-cell--1-col float-right">
+        <div class="mdl-cell mdl-cell--1-col mdl-cell--5-offset float-right">
             {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
             <p class="deletelink-box"><a href="{% add_preserved_filters delete_url %}" class="deletelink mdl-button">{% trans "Delete" %}</a></p>
         </div>
