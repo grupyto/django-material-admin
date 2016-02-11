@@ -674,6 +674,24 @@ span#result-count{
 .label-danger{
     background-color: rgba(255, 0, 0, 0.5);
 }
+#ul-paginator{
+    margin: 0 5px;
+}
+#ul-paginator span, #ul-paginator a{
+    padding: 5px 8px;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0;
+}
+#ul-paginator span{
+    border-color: rgba(0, 176, 255, .4);
+    background-color: rgba(0, 176, 255, .05);
+}
+#ul-paginator a{
+    border-color: rgb(236, 239, 241);
+    background-color: rgba(236, 239, 241, .2);
+}
 /*
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -710,35 +728,7 @@ div.form-row{
 input[type=checkbox][checked=true]{
     background: rgb(63, 81, 181) url("/static/interface_material/img/svg/ic_check_white_12px.svg");
 }*/
-/*
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
-             CSS PARA OS ITENS DA PAGINACAO
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
---------------------------------------------------------------
-*/
-#ul-paginator{
-    margin: 0 5px;
-}
-#ul-paginator span, #ul-paginator a{
-    padding: 5px 8px;
-    border-radius: 2px;
-    border-style: solid;
-    border-width: 1px;
-    margin: 0;
-}
-#ul-paginator span{
-    border-color: rgba(0, 176, 255, .4);
-    background-color: rgba(0, 176, 255, .05);
-}
-#ul-paginator a{
-    border-color: rgb(236, 239, 241);
-    background-color: rgba(236, 239, 241, .2);
-}
+
 /*
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -754,17 +744,40 @@ button.danger{
     color: white !important;
     background-color: rgba(244, 67, 54, 0.9) !important;
 }
-a[class="related-widget-wrapper-link add-related"]{
+div.related-widget-wrapper script ~ a{
+    border-radius: 50%;
+    padding: 17px 25px;
+}
+a[class="related-widget-wrapper-link add-related"], a[class="related-widget-wrapper-link change-related"]{
     border: none;
-    padding: 10px 20px;
-    margin-left: 40.8%;
-    border-radius: 2px;
+    margin-left: 37%;
     z-index: 2;
     box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12),0 1px 1px 0 rgba(0,0,0,.24);
-    background-color: rgb(176, 190, 197);
+    background-color: rgb(0, 176, 255);
     background-image: url("/static/interface_material/img/png/ic_add_black_18dp.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
-a[class="related-widget-wrapper-link add-related"] img{
+a[class="related-widget-wrapper-link change-related"]{
+    background-image: url("/static/interface_material/img/png/ic_mode_edit_black_18dp.png");
+    margin-right: 75px;
+}
+a[class="related-widget-wrapper-link add-related"] img, a[class="related-widget-wrapper-link change-related"] img{
     display: none;
+}
+select:not([multiple=multiple]){
+    max-width: 90%;
+}
+select:not([multiple=multiple]) ~ a{
+    background-color: transparent !important;
+    float: right;
+    border-radius: 3px !imporant;
+    padding: 17px 25px;
+    margin-top: -45px;
+    z-index: 2;
+    margin-left: 5px;
+    box-shadow: none;
+}
+select:not([multiple=multiple]) ~ a:hover{
+    background-color: rgba(0, 0, 0, .12) !important;
 }

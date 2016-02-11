@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class Person(models.Model):
     first_name = models.CharField(max_length=30)
@@ -10,8 +9,14 @@ class Person(models.Model):
     def __unicode__(self):
         return self.first_name
 
+class Permissions(models.Model):
+    name = models.CharField(max_length=100)
+    enabled = models.BooleanField(default=True)
+
+
 class Group(models.Model):
     name = models.CharField(max_length=128)
+    permissions = models.ManyToManyField(Permissions)
     members = models.ManyToManyField(Person, through='Membership')
 
 
