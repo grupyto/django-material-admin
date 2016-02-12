@@ -335,12 +335,14 @@ span.span-date{
     color: #c3c3c3;
     vertical-align: middle;
     text-align: right;
-    line-height: 40px;   
+    line-height: 40px;
 }
 a {
    text-decoration: none;
 }
-
+.button-search{
+    margin-top: -70px;
+}
 /*
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -419,9 +421,9 @@ div.actions{
   position: relative;
 }
 div.actions > button{
-    height: 25px;
     line-height: 25px;
     margin-right: 10px;
+    margin-top: -5px;
 }
 /*div.actions:after {
   position: absolute;
@@ -737,6 +739,26 @@ input[type=checkbox][checked=true]{
 --------------------------------------------------------------
 --------------------------------------------------------------
 --------------------------------------------------------------
+          CSS PARA O UL DO DATE HIERARCHY
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+div.xfull > ul.toplinks{
+    margin: 0;
+    padding-left: 10px;
+}
+div.xfull > ul.toplinks > li{
+    display: inline;
+    list-style: none;
+    margin-right: 10px;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
                   CSS PARA OS BOTÕES
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -750,6 +772,9 @@ button.danger{
 div.related-widget-wrapper script ~ a{
     border-radius: 50%;
     padding: 17px 25px;
+}
+.butoon-no-shadow{
+    box-shadow: none;
 }
 a[class="related-widget-wrapper-link add-related"], a[class="related-widget-wrapper-link change-related"]{
     border: none;
@@ -776,7 +801,7 @@ select:not([multiple=multiple]) ~ a{
     float: right;
     border-radius: 3px !imporant;
     padding: 17px 25px;
-    margin-top: -40px;
+    margin-top: -35px;
     z-index: 2;
     margin-left: 5px;
     box-shadow: none;

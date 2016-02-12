@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
 
-
 <html lang="{{ LANGUAGE_CODE|default:"pt-br" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
     <head>
         <meta charset="utf-8">
@@ -11,14 +10,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}{% endblock %}</title>
 
-        {# CSS Material Lite #}
-        <link href="{% static 'interface_material/css/material.min.css' %}" rel='stylesheet' type="text/css"/>
+        <!-- CSS Material Lite -->
         <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-blue.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel='stylesheet' href="{% static 'interface_material/css/material.min.css' %}" type="text/css"/>
         <link rel="stylesheet" href="{% static 'interface_material/css/base.css' %}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-        {# Font Awesome #}
+        <!-- CSS do template demo dashboard -->
+        <!-- <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.cyan-light_blue.min.css"> -->
+
+        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         {% if LANGUAGE_BIDI %}
@@ -33,33 +34,31 @@
             <meta name="robots" content="NONE,NOARCHIVE"/>
         {% endblock %}
 
-    {#    <!-- Add to homescreen for Chrome on Android -->#}
-    {#    <meta name="mobile-web-app-capable" content="yes">#}
-    {#    <link rel="icon" sizes="192x192" href="images/android-desktop.png">#}
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- <meta name="mobile-web-app-capable" content="yes"> -->
+        <!-- <link rel="icon" sizes="192x192" href="images/android-desktop.png"> -->
 
-    {#    <!-- Add to homescreen for Safari on iOS -->#}
-    {#    <meta name="apple-mobile-web-app-capable" content="yes">#}
-    {#    <meta name="apple-mobile-web-app-status-bar-style" content="black">#}
-    {#    <meta name="apple-mobile-web-app-title" content="Material Design Lite">#}
-    {#    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">#}
+        <!-- Add to homescreen for Safari on iOS -->
+        <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+        <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+        <!-- <meta name="apple-mobile-web-app-title" content="Material Design Lite"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png"> -->
 
-    {#    <!-- Tile icon for Win8 (144x144 + tile color) -->#}
-    {#    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">#}
-    {#    <meta name="msapplication-TileColor" content="#3372DF">#}
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
+        <!-- <meta name="msapplication-TileColor" content="#3372DF"> -->
 
-    {#    <link rel="shortcut icon" href="images/favicon.png">#}
+        <!-- <link rel="shortcut icon" href="images/favicon.png"> -->
 
         <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
         <!--
         <link rel="canonical" href="http://www.example.com/">
         -->
 
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-        <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.cyan-light_blue.min.css">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+
         <style>
             #view-source {
                 position: fixed;
@@ -106,7 +105,7 @@
                                     </button>
                                     <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
                                         {% if has_permission %}
-{#                                            <li class="mdl-menu__item">About</li>#}
+                                            <!-- <li class="mdl-menu__item">About</li> -->
                                             {% if user.has_usable_password %}
                                                 <li class="mdl-menu__item">
                                                     <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
@@ -125,7 +124,7 @@
                     {# MENU LATERAL #}
                     <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
                         <header class="demo-drawer-header">
-{#                                <img src="images/user.jpg" class="demo-avatar">#}
+                                <!-- <img src="images/user.jpg" class="demo-avatar"> -->
 
                             <div class="demo-avatar-dropdown">
                                 <span>hello@example.com</span>
@@ -166,10 +165,10 @@
                                 {% endfor %}
                             {% endif %}
 
-{#                                <a class="mdl-navigation__link" href="">#}
-{#                                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>#}
-{#                                    Inbox#}
-{#                                </a>#}
+                                <!-- <a class="mdl-navigation__link" href="">
+                                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>
+                                    Inbox
+                                </a> -->
 
                             <div class="mdl-layout-spacer"></div>
                             <a class="mdl-navigation__link" href="">
@@ -178,7 +177,7 @@
                             </a>
                         </nav>
                     </div>
-                    {# FIM MENU LATERAL #}
+                    <!-- FIM MENU LATERAL  -->
                 {% endif %}
             {% endif %}
 
@@ -224,7 +223,7 @@
                 </div>
             </main>
         </div>
-        {# JS Material Lite #}
+        <!-- JS Material Lite  -->
         <script src="{% static 'admin/js/jquery.js' %}"></script>
         <script src="{% static 'interface_material/js/material.min.js' %}"></script>
         <script src="{% static 'interface_material/js/base.js' %}"></script>
