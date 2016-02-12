@@ -1,10 +1,18 @@
 from django.db import models
 
+
+class SocialMedia(models.Model):
+    twitter = models.CharField(max_length=50, null=True, blank=True)
+    facebook = models.CharField(max_length=50, null=True, blank=True)
+    google_plus = models.CharField(max_length=100, null=True, blank=True)
+    person = models.ForeignKey('Person')
+
+
 class Contact(models.Model):
     cell_phone = models.CharField(max_length=20)
-    twitter = models.CharField(max_length=20)
     address = models.TextField(null=True, blank=True)
     person = models.ForeignKey('Person')
+
 
 class Person(models.Model):
     first_name = models.CharField(max_length=30)
@@ -14,6 +22,7 @@ class Person(models.Model):
 
     def __unicode__(self):
         return self.first_name
+
 
 class Permissions(models.Model):
     name = models.CharField(max_length=100)
