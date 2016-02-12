@@ -11,13 +11,14 @@
         <title>{% block title %}{% endblock %}</title>
 
         <!-- CSS Material Lite -->
-        <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-blue.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel='stylesheet' href="{% static 'interface_material/css/material.min.css' %}" type="text/css"/>
-        <link rel="stylesheet" href="{% static 'interface_material/css/base.css' %}">
+         <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-indigo.min.css" />
 
-        <!-- CSS do template demo dashboard -->
-        <!-- <link rel="stylesheet" href="$$hosted_libs_prefix$$/$$version$$/material.cyan-light_blue.min.css"> -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- ESSE CSS ESTAVA SUBESCREVENDO O CSS CUSTOMIZADO DO MATERIAL DESIGN -->
+        <!-- <link rel='stylesheet' href="{% static 'interface_material/css/material.min.css' %}" type="text/css"/> -->
+
+        <link rel="stylesheet" href="{% static 'interface_material/css/base.css' %}">
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -121,8 +122,8 @@
                         </div>
                     </header>
 
-                    {# MENU LATERAL #}
-                    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+                    <!-- MENU LATERAL -->
+                    <div class="demo-drawer mdl-layout__drawer" id="menu-drawer">
                         <header class="demo-drawer-header">
                                 <!-- <img src="images/user.jpg" class="demo-avatar"> -->
 
@@ -141,8 +142,7 @@
                                 </ul>
                             </div>
                         </header>
-                        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-
+                        <nav class="demo-navigation mdl-navigation">
                             {% if adm_app_list %}
                                 {% for app in adm_app_list %}
                                     <ul id="main-menu" class="gui-controls">
