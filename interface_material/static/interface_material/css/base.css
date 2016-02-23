@@ -712,6 +712,9 @@ div.form-row{
     margin-top: 20px !important;
     margin-bottom: 5px !important;
 }
+input:focus {
+  outline:none;
+}
 input[type=file]{
     border: none;
 }
@@ -722,6 +725,15 @@ input[type=file] button{
     color: white;
     border-radius: 2px;
 }
+a:not([href]){
+  cursor: not-allowed;
+  opacity: .4;
+  background-color: none !important;
+}
+a:hover:not([href]){
+  background-color: transparent !important;
+}
+
 /*input[type=checkbox]{
     display: inline-block;
     box-sizing: border-box;
