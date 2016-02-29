@@ -76,7 +76,7 @@
     <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 
         <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <!-- Se quiser deixar o menu fixo basta adiciona a classe mdl-layout--fixed-drawer no div acima -->
+          <!--  -->
             {% if user.is_authenticated %}
 
                 {% if not is_popup %}
@@ -125,7 +125,7 @@
 
                     <!-- MENU LATERAL -->
                     <div class="demo-drawer mdl-layout__drawer" id="menu-drawer">
-                      <span class="mdl-layout-title">Title</span>
+                      <span class="mdl-layout-title">Menu</span>
                         <header class="demo-drawer-header">
                                 <!-- <img src="images/user.jpg" class="demo-avatar"> -->
 
@@ -194,13 +194,13 @@
                     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" style="padding:0;">
                         <div class="mdl-card__title" style="background-color: #f8f8f8; margin:0 !important; display: block; width:100%;">
                             <div class="mdl-grid grid-no-margin">
-                              <div class="mdl-cell mdl-cell--11-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                              <div class="mdl-cell mdl-cell--8-col">
                                   <h2 class="mdl-card__title-text">
                                       {% block card-title %}{% endblock %}
                                   </h2>
                               </div>
                               {% if not is_popup %}
-                              <div class="mdl-cell mdl-cell--1-col mdl-cell--2-col-tablet mdl-cell--2-col-phone float-right">
+                              <div class="mdl-cell mdl-cell--4-col float-right">
                                   {% block card-menu-title %}{% endblock %}
                               </div>
                               {% endif %}
@@ -211,10 +211,10 @@
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
                             <div class="mdl-grid mdl-grid-no-margin">
-                                <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--7-col-tablet mdl-cell--7-col-phone">
+                                <div class="mdl-cell mdl-cell--8-col">
                                     {% block card-action-bar %}{% endblock %}
                                 </div>
-                                <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--5-col-tablet mdl-cell-5-col-phone float-right">
+                                <div class="mdl-cell mdl-cell--4-col float-right">
                                     <span class="float-right span-date">
                                         {% now "d \d\e  F \d\e Y \- H:i" %}
                                     </span>
