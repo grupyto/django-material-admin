@@ -75,7 +75,8 @@
 
     <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 
-        <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <!-- Se quiser deixar o menu fixo basta adiciona a classe mdl-layout--fixed-drawer no div acima -->
             {% if user.is_authenticated %}
 
                 {% if not is_popup %}
@@ -124,6 +125,7 @@
 
                     <!-- MENU LATERAL -->
                     <div class="demo-drawer mdl-layout__drawer" id="menu-drawer">
+                      <span class="mdl-layout-title">Title</span>
                         <header class="demo-drawer-header">
                                 <!-- <img src="images/user.jpg" class="demo-avatar"> -->
 
@@ -209,10 +211,10 @@
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
                             <div class="mdl-grid mdl-grid-no-margin">
-                                <div class="mdl-cell--10-col">
+                                <div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--7-col-tablet mdl-cell--7-col-phone">
                                     {% block card-action-bar %}{% endblock %}
                                 </div>
-                                <div class="mdl-cell--2-col float-right">
+                                <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--5-col-tablet mdl-cell-5-col-phone float-right">
                                     <span class="float-right span-date">
                                         {% now "d \d\e  F \d\e Y \- H:i" %}
                                     </span>
