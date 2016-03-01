@@ -7,10 +7,12 @@
 
 <ul class="filtro-change_list mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect sieve-{{ title|nospace }}" for="menu_{{ title|nospace }}">
 
-    <div class="mdl-textfield mdl-js-textfield" style="margin: 0 15px">
-        <input class="mdl-textfield__input" type="text" id="sieve-input-{{ title|nospace }}">
-        <label class="mdl-textfield__label" for="sample1">Pesquisa</label>
-    </div>
+{#    <div class="mdl-textfield mdl-js-textfield" style="margin: 0 15px">#}
+{#        <input class="mdl-textfield__input" type="text" id="sieve-input-{{ title|nospace }}">#}
+{#        <label class="mdl-textfield__label" for="sample1">Pesquisa</label>#}
+{#    </div>#}
+
+    <input style="min-width: 200px; margin: 0 16px; width: calc(100% - 50px);" class="mdl-textfield__input filtro-input-search" type="text" id="sieve-input-{{ title|nospace }}" placeholder="Pesquisa">
 
     {% for choice in choices %}
         <a href="{{ choice.query_string|iriencode }}">
