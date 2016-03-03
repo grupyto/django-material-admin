@@ -425,19 +425,6 @@ div.actions > button{
     margin-right: 10px;
     margin-top: -5px;
 }
-/*div.actions:after {
-  position: absolute;
-  top: 0.75em;
-  right: 0.5em;
-  width: 0;
-  height: 0;
-  padding: 0;
-  content: '';
-  border-left: .25em solid transparent;
-  border-right: .25em solid transparent;
-  border-top: 0.375em solid rgba(0,0,0, 0.12);
-  pointer-events: none;
-}*/
 div.actions select{
     background-color: transparent;
     padding: 4px 0;
@@ -816,7 +803,26 @@ a[class="related-widget-wrapper-link add-related"] img, a[class="related-widget-
     display: none;
 }
 select:not([multiple=multiple]){
+  /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
     max-width: 92%;
+}
+@media (max-width: 1350px){
+  select:not([multiple=multiple]){
+    /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
+      max-width: 90%;
+  }
+}
+@media (max-width: 1100px){
+  select:not([multiple=multiple]){
+    /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
+      max-width: 86%;
+  }
+}
+@media (max-width: 795px){
+  select:not([multiple=multiple]){
+    /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
+      max-width: 80%;
+  }
 }
 select:not([multiple=multiple]) ~ a{
     background-color: transparent !important;
