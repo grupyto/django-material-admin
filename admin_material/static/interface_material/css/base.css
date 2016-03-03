@@ -333,11 +333,16 @@ div.mdl-cell-save-button{
 span.span-date{
     font-size: 0.8em;
     color: #c3c3c3;
+    vertical-align: middle;
+    text-align: right;
+    line-height: 40px;
 }
 a {
    text-decoration: none;
 }
-
+.button-search{
+    margin-top: -70px;
+}
 /*
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -416,23 +421,10 @@ div.actions{
   position: relative;
 }
 div.actions > button{
-    height: 25px;
     line-height: 25px;
     margin-right: 10px;
+    margin-top: -5px;
 }
-/*div.actions:after {
-  position: absolute;
-  top: 0.75em;
-  right: 0.5em;
-  width: 0;
-  height: 0;
-  padding: 0;
-  content: '';
-  border-left: .25em solid transparent;
-  border-right: .25em solid transparent;
-  border-top: 0.375em solid rgba(0,0,0, 0.12);
-  pointer-events: none;
-}*/
 div.actions select{
     background-color: transparent;
     padding: 4px 0;
@@ -707,6 +699,28 @@ div.form-row{
     margin-top: 20px !important;
     margin-bottom: 5px !important;
 }
+input:focus {
+  outline:none;
+}
+input[type=file]{
+    border: none;
+}
+input[type=file] button{
+    border: none;
+    padding: 8px 10px;
+    font-weight: 600;
+    color: white;
+    border-radius: 2px;
+}
+a:not([href]){
+  cursor: not-allowed;
+  opacity: .4;
+  background-color: none !important;
+}
+a:hover:not([href]){
+  background-color: transparent !important;
+}
+
 /*input[type=checkbox]{
     display: inline-block;
     box-sizing: border-box;
@@ -734,6 +748,26 @@ input[type=checkbox][checked=true]{
 --------------------------------------------------------------
 --------------------------------------------------------------
 --------------------------------------------------------------
+          CSS PARA O UL DO DATE HIERARCHY
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+div.xfull > ul.toplinks{
+    margin: 0;
+    padding-left: 10px;
+}
+div.xfull > ul.toplinks > li{
+    display: inline;
+    list-style: none;
+    margin-right: 10px;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
                   CSS PARA OS BOTÕES
 --------------------------------------------------------------
 --------------------------------------------------------------
@@ -747,6 +781,9 @@ button.danger{
 div.related-widget-wrapper script ~ a{
     border-radius: 50%;
     padding: 17px 25px;
+}
+.butoon-no-shadow{
+    box-shadow: none;
 }
 a[class="related-widget-wrapper-link add-related"], a[class="related-widget-wrapper-link change-related"]{
     border: none;
@@ -766,18 +803,221 @@ a[class="related-widget-wrapper-link add-related"] img, a[class="related-widget-
     display: none;
 }
 select:not([multiple=multiple]){
+  /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
     max-width: 92%;
+}
+@media (max-width: 1350px){
+  select:not([multiple=multiple]){
+    /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
+      max-width: 90%;
+  }
+}
+@media (max-width: 1100px){
+  select:not([multiple=multiple]){
+    /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
+      max-width: 86%;
+  }
+}
+@media (max-width: 795px){
+  select:not([multiple=multiple]){
+    /* TODO Verificar o tamanho da tela para aplicar o tamanho menor  */
+      max-width: 80%;
+  }
 }
 select:not([multiple=multiple]) ~ a{
     background-color: transparent !important;
     float: right;
     border-radius: 3px !imporant;
     padding: 17px 25px;
-    margin-top: -40px;
+    margin-top: -35px;
     z-index: 2;
     margin-left: 5px;
     box-shadow: none;
 }
 select:not([multiple=multiple]) ~ a:hover{
     background-color: rgba(0, 0, 0, .12) !important;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+               CSS PARA O MENU DRAWER
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+#menu-drawer{
+    background-color: #b0bec5;
+}
+#menu-drawer nav{
+    background-color: #37474f;
+}
+#menu-drawer > nav > ul.gui-controls{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+#menu-drawer > nav > ul.gui-controls > li > a:hover{
+    background-color: #263238;
+    color: white;
+}
+/* Essas regras estão subscrevendo a linha 147*/
+#menu-drawer > nav > ul.gui-controls > li > ul > li.gui-folder-interno{
+    padding-left: 30px;
+}
+#menu-drawer > nav > ul.gui-controls > li > ul > li.gui-folder-interno:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+#menu-drawer > nav > ul.gui-controls > li > ul > li.gui-folder-interno > a:hover{
+    background-color: none;
+    color: white;
+}
+#ul-apps-menu-drawer > li{
+  overflow: visible;
+  height: auto !important;
+}
+#ul-apps-menu-drawer span.mdl-list__item-primary-content{
+  height: auto;
+  min-height: 36px;
+}
+#ul-apps-menu-drawer span.mdl-list__item-primary-content > span{
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+}
+#ul-apps-menu-drawer span.mdl-list__item-primary-content i{
+  margin-top: 0 !important;
+  margin-right: 10px !important;
+  color: rgba(255, 255, 255, 0.7);
+}
+#ul-apps-menu-drawer span.mdl-list__item-sub-title{
+  margin-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, .45);
+}
+#ul-apps-menu-drawer nav.mdl-navigation{
+  padding-left: 45px;
+  padding-top:  6px;
+}
+#ul-apps-menu-drawer nav.mdl-navigation > a{
+  padding: 3px 0;
+}
+#ul-apps-menu-drawer nav.mdl-navigation > a:hover{
+  background-color: transparent !important;
+  color: white;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+               CSS PARA O STACKED INLINE
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+div.inline-group{
+    margin-bottom: 10px;
+}
+div.inline-group > h4{
+    border-bottom: solid 2px rgba(0,0,0,0.25);
+    display: block;
+    width: 98%;
+}
+div.inline-group > div.inline-related {
+    width: 97.5%;
+    display: block;
+    /*border: solid 0.5px rgba(0,0,0,.05);*/
+    margin-bottom: 15px;
+    margin-left: 5px;
+    border-radius: 2px;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.08);
+    padding-bottom: 15px;
+}
+div.inline-group > div.inline-related > h6{
+    display: block;
+    width: 100%;
+    background-color: rgb(248, 248, 248);
+    margin: 0;
+    padding: 10px 0;
+}
+div.inline-group > div.inline-related > h6 b{
+    margin-left: 10px;
+}
+div.inline-group > div.inline-related > fieldset{
+    margin-left: 25px;
+    width: 96%;
+}
+div.inline-group > div.inline-related > fieldset textarea{
+    height: 100px;
+}
+div.add-row{
+    margin: 25px 20px !important;
+    padding: 4px;
+}
+div.add-row > a, div.tabular.inline-related tr.add-row td a{
+    padding: 10px 15px;
+    border-radius: 2px;
+    border: none;
+    background-color: rgba(120, 144, 156,.7);
+    color: white;
+}
+/*
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+               CSS PARA O TABULAR INLINE
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+--------------------------------------------------------------
+*/
+
+div.tabular.inline-related{
+    margin:0;
+    box-shadow: none !important;
+    width: 100% !important;
+    padding: 0;
+}
+div.tabular.inline-related td.delete{
+    text-align: center;
+    vertical-align: middle;
+}
+div.tabular.inline-related tr.add-row{
+    height: 50px;
+}
+div.tabular.inline-related h4{
+    border-bottom: solid 2px rgba(0,0,0,0.25);
+}
+div.tabular.inline-related fieldset{
+    margin: 0 !important;
+}
+div.tabular.inline-related table{
+    width: 98% !important;
+}
+div.tabular.inline-related thead th{
+    text-align: left;
+}
+div.tabular.inline-related thead th:last-child{
+    text-align: center;
+}
+div.tabular.inline-related tbody td{
+    vertical-align: bottom;
+}
+div.tabular.inline-related tbody td input[type=text], div.tabular.inline-related tbody td textarea{
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    display: block;
+    font-size: 16px;
+    font-family: "Helvetica","Arial",sans-serif;
+    margin: 0;
+    padding: 4px 0;
+    width: 100%;
+    background: 0 0;
+    text-align: left;
+    color: inherit;
+}
+div.tabular.inline-related tbody td textarea{
+    height: 80px;
 }

@@ -873,6 +873,38 @@ select:not([multiple=multiple]) ~ a:hover{
     background-color: none;
     color: white;
 }
+#ul-apps-menu-drawer > li{
+  overflow: visible;
+  height: auto !important;
+}
+#ul-apps-menu-drawer span.mdl-list__item-primary-content{
+  height: auto;
+  min-height: 36px;
+}
+#ul-apps-menu-drawer span.mdl-list__item-primary-content > span{
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+}
+#ul-apps-menu-drawer span.mdl-list__item-primary-content i{
+  margin-top: 0 !important;
+  margin-right: 10px !important;
+  color: rgba(255, 255, 255, 0.7);  
+}
+#ul-apps-menu-drawer span.mdl-list__item-sub-title{
+  margin-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, .45);
+}
+#ul-apps-menu-drawer nav.mdl-navigation{
+  padding-left: 45px;
+  padding-top:  6px;
+}
+#ul-apps-menu-drawer nav.mdl-navigation > a{
+  padding: 3px 0;
+}
+#ul-apps-menu-drawer nav.mdl-navigation > a:hover{
+  background-color: transparent !important;
+  color: white;
+}
 /*
 --------------------------------------------------------------
 --------------------------------------------------------------
