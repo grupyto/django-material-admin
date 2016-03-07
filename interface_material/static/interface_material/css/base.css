@@ -699,6 +699,20 @@ div.form-row{
     margin-top: 20px !important;
     margin-bottom: 5px !important;
 }
+
+div.form-row-multiples-items{
+  display: inline-flex;
+  width: 100%;
+}
+
+div.form-row-multiples-items div{
+  width: 100%;
+  margin-right: 20px;
+}
+
+div.form-row-multiples-items div:last-of-type{
+  margin-right: 0;
+}
 input:focus {
   outline:none;
 }
@@ -888,7 +902,7 @@ select:not([multiple=multiple]) ~ a:hover{
 #ul-apps-menu-drawer span.mdl-list__item-primary-content i{
   margin-top: 0 !important;
   margin-right: 10px !important;
-  color: rgba(255, 255, 255, 0.7);  
+  color: rgba(255, 255, 255, 0.7);
 }
 #ul-apps-menu-drawer span.mdl-list__item-sub-title{
   margin-top: 5px;

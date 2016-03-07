@@ -14,3 +14,8 @@ $("div").on('mouseleave', '#menu-drawer', function() {
   $( "div[id='menu-drawer']" ).removeClass('is-visible');
   $( "div[class*='mdl-layout__obfuscator']" ).removeClass('is-visible');
 });
+
+// Aplicando regra css para os casos onde o fieldset foi configurado para dois
+// ou mais elementos por linha
+
+$("div[class*='field-box']").parent("div").addClass('form-row-multiples-items');
