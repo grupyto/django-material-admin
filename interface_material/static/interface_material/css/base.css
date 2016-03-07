@@ -735,6 +735,9 @@ a:hover:not([href]){
   background-color: transparent !important;
 }
 
+label.required{
+  font-weight: 800;
+}
 /*input[type=checkbox]{
     display: inline-block;
     box-sizing: border-box;
