@@ -516,7 +516,8 @@ div.actions select{
 }
 
 .mdl-data-table td, .mdl-data-table th {
-    text-align: center;
+    text-align: left;
+    white-space: normal;
 }
 /*
 --------------------------------------------------------------
@@ -699,6 +700,20 @@ div.form-row{
     margin-top: 20px !important;
     margin-bottom: 5px !important;
 }
+
+div.form-row-multiples-items{
+  display: inline-flex;
+  width: 100%;
+}
+
+div.form-row-multiples-items div{
+  width: 100%;
+  margin-right: 20px;
+}
+
+div.form-row-multiples-items div:last-of-type{
+  margin-right: 0;
+}
 input:focus {
   outline:none;
 }
@@ -721,6 +736,9 @@ a:hover:not([href]){
   background-color: transparent !important;
 }
 
+label.required{
+  font-weight: 800;
+}
 /*input[type=checkbox]{
     display: inline-block;
     box-sizing: border-box;

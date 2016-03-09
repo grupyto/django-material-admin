@@ -516,7 +516,8 @@ div.actions select{
 }
 
 .mdl-data-table td, .mdl-data-table th {
-    text-align: center;
+    text-align: left;
+    white-space: normal;
 }
 /*
 --------------------------------------------------------------

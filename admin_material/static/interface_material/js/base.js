@@ -4,10 +4,18 @@ $(".gui-folder a").on("click", function () {
     $('#ul-'+id).toggle(200);
 });
 
-
 // Evento para mostrar o menu caso o usuário passe o mouse sobre o item do menu
-$( "div[class='mdl-layout__drawer-button']" ).mouseover(function() {
-  /* Act on the event */
-  console.log('Over');
-  $( "div[class='manu-drawer']" ).addClass('is-visible');
+$("div").on('mouseover', '.mdl-layout__drawer-button', function(){
+  $( "div[id='menu-drawer']" ).addClass('is-visible');
+  $( "div[class='mdl-layout__obfuscator']" ).addClass('is-visible');
 });
+
+// Evento para ocultar o menu quando ele sair do elemento menu-drawer
+$("div").on('mouseleave', '#menu-drawer', function() {
+  $( "div[id='menu-drawer']" ).removeClass('is-visible');
+  $( "div[class*='mdl-layout__obfuscator']" ).removeClass('is-visible');
+});
+
+// Aplicando regra css para os casos onde o fieldset foi configurado para dois
+// ou mais elementos por linha
+$("div[class*='field-box']").parent("div").addClass('form-row-multiples-items');
