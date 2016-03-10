@@ -374,6 +374,19 @@ table.result_list input[type=checkbox]{
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-property: background;
 }
+table.result_list input[type=text], table.result_list input[type=email]{
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  display: block;
+  font-size: 16px;
+  font-family: "Helvetica","Arial",sans-serif;
+  margin: 0;
+  padding: 4px 0;
+  width: 100%;
+  background: 0 0;
+  text-align: left;
+  color: inherit;
+}
 table.result_list tbody tr th.field-__str__ , table.result_list thead tr th.column-__str__ div.text{
     text-align: left !important;
 }
@@ -739,27 +752,6 @@ a:hover:not([href]){
 label.required{
   font-weight: 800;
 }
-/*input[type=checkbox]{
-    display: inline-block;
-    box-sizing: border-box;
-    width: 16px;
-    height: 16px;
-    margin: 0;
-    cursor: pointer;
-    overflow: hidden;
-    border: 2px solid #3f51b5;
-    border-radius: 2px;
-    z-index: 2;
-    background-color: none !important;
-    -webkit-appearance:none;
-    transition-duration: .28s;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
-    transition-property: background;
-    margin-left: 10px; margin-right: 3px;
-}
-input[type=checkbox][checked=true]{
-    background: rgb(63, 81, 181) url("/static/interface_material/img/svg/ic_check_white_12px.svg");
-}*/
 
 /*
 --------------------------------------------------------------

@@ -23,7 +23,7 @@ class ContactAdmin(admin.TabularInline):
 
 class PersonAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'email']
-    list_per_page = 1
+    list_editable = ('first_name', 'email')
     inlines = [ContactAdmin, SocialMediaAdminStacked]
 
 class MembershipAdmin(admin.ModelAdmin):

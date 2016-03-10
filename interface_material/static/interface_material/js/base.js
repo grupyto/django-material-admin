@@ -19,3 +19,5 @@ $("div").on('mouseleave', '#menu-drawer', function() {
 // Aplicando regra css para os casos onde o fieldset foi configurado para dois
 // ou mais elementos por linha
 $("div[class*='field-box']").parent("div").addClass('form-row-multiples-items');
+
+$("input[type='submit'][name='_save']").addClass('mdl-button').addClass('mdl-js-button');
