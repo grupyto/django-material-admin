@@ -1,6 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Django admin using framework https://getmdl.io/ (Material Design Lite)
 
 ### Requirements ###
 
@@ -9,10 +9,7 @@ This README would normally document whatever steps are necessary to get your app
 ### Installation ###
 
 * Clone Project
+* Add into the INSTALLED_APPS before 'django.contrib.admin' **'interface_material'**,
 * Run pip install -r requirements.txt
 * Copy and paste interface_material in your project
-* Option: copy and paste demo dir in your project
-
-
-
-
+* Option: copy and paste demo dir in your project for view 
