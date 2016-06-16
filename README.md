@@ -12,3 +12,5 @@ Django admin using framework https://getmdl.io/ (Material Design Lite)
 * Copy and paste interface_material in your project
 
 ### Demo app ###
+
+If you want to see how was the interface, install the demo app in your project, run syncdb and run the project
