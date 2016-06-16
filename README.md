@@ -1,16 +1,3 @@
 Django admin using framework https://getmdl.io/ (Material Design Lite)
 
-### Requirements ###
-
-* Django == 1.8
-
-### Installation ###
-
-* Clone Project
-* Add into the INSTALLED_APPS before 'django.contrib.admin' **'interface_material'**,
-* Run pip install -r requirements.txt
-* Copy and paste interface_material in your project
-
-### Demo app ###
-
-If you want to see how was the interface, install the demo app in your project, run syncdb and run the project
+Projeto migrado para o github
