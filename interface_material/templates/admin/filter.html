@@ -1,0 +1,39 @@
+{% load i18n static material_tags %}
+
+<button id="menu_{{ title|nospace }}" class="mdl-button mdl-js-button" onclick="input_focus_{{ title|nospace }}()">
+    {% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}
+    <i class="fa fa-chevron-down"></i>
+</button>
+
+<ul class="filtro-change_list mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect sieve-{{ title|nospace }}" for="menu_{{ title|nospace }}">
+
+{#    <div class="mdl-textfield mdl-js-textfield" style="margin: 0 15px">#}
+{#        <input class="mdl-textfield__input" type="text" id="sieve-input-{{ title|nospace }}">#}
+{#        <label class="mdl-textfield__label" for="sample1">Pesquisa</label>#}
+{#    </div>#}
+
+    <input style="min-width: 200px; margin: 0 16px; width: calc(100% - 50px);" class="mdl-textfield__input filtro-input-search" type="text" id="sieve-input-{{ title|nospace }}" placeholder="Pesquisa">
+
+    {% for choice in choices %}
+        <a href="{{ choice.query_string|iriencode }}">
+            <li class="mdl-menu__item {% if choice.selected %}selected{% endif %}">
+                {{ choice.display }}
+            </li>
+        </a>
+    {% endfor %}
+</ul>
+
+{% with title|nospace as tag_name %}
+    <script src="{% static 'interface_material/js/jquery-1.12.0.min.js' %}"></script>
+    <script src="{% static 'interface_material/js/sieve.min.js' %}"></script>
+    <script type="text/javascript">
+        function input_focus_{{ tag_name }}() {
+            document.getElementById("sieve-input-{{ tag_name }}").focus();
+        }
+
+        $("ul.sieve-{{ tag_name }}").sieve({
+            itemSelector: "li",
+            searchInput: $("#sieve-input-{{ tag_name }}")
+        });
+    </script>
+{% endwith %}

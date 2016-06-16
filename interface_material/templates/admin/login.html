@@ -1,0 +1,94 @@
+{% load i18n admin_static material_tags %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin Material</title>
+
+        {# CSS Material Lite #}
+        <link href="{% static 'interface_material/css/material.min.css' %}" rel='stylesheet' type="text/css"/>
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="{% static 'interface_material/css/base.css' %}">
+
+        <style type="text/css">
+            body {
+                background-color: #f5f5f5;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="mdl-card mdl-shadow--2dp" style="margin: 0 auto; width: 800px; height: auto; margin-top: 10px;">
+            <form action="{{ app_path }}" method="post" id="login-form">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">
+                        {{ site_header|default:_('Django administration') }}
+                    </h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    {% csrf_token %}
+
+                    {% if form.errors and not form.non_field_errors %}
+                        <p class="errornote">
+                            {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}
+                                {% trans "Please correct the errors below." %}{% endif %}
+                        </p>
+                    {% endif %}
+
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p class="errornote">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+
+                    <div class="mdl-grid">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                            {{ form.username|addcss:"mdl-textfield__input" }}
+                            <label class="mdl-textfield__label" for="id_{{form.username.name}}">
+                                {{ form.username.label }}
+                            </label>
+                            {#                {{ form.username.label_tag }}#}
+                            {{ form.username.errors }}
+                        </div>
+                    </div>
+
+                    <div class="mdl-grid">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell--12-col">
+                            {{ form.password|addcss:"mdl-textfield__input" }}
+                            <label class="mdl-textfield__label" for="id_{{form.password.name}}">
+                                {{ form.password.label }}
+                            </label>
+                            {#                {{ form.password.label_tag }}#}
+                            <input class="mdl-textfield__input" type="hidden" name="next" value="{{ next }}"/>
+                            {{ form.password.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    {% url 'admin_password_reset' as password_reset_url %}
+                    {% if password_reset_url %}
+                        <div class="password-reset-link">
+                            <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+                        </div>
+                    {% endif %}
+                    <div class="submit-row">
+                        <label>&nbsp;</label>
+                        <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                               type="submit" value="{% trans 'Log in' %}"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+{#            document.getElementById('id_username').focus()#}
+        </script>
+        <script src="{% static 'interface_material/js/material.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+{% load i18n admin_urls %}
+<div class="mdl-grid">
+        {% if show_save %}
+        <div class="mdl-cell mdl-cell-save-button">
+            <button type="submit" name="_save" class="default mdl-button mdl-js-button mdl-button--raised">{% trans 'Save' %}</button>
+        </div>
+        {% endif %}
+        {% if show_save_and_add_another %}
+        <div class="mdl-cell mdl-cell--2-col">
+            <button type="submit" name="_addanother" class="default mdl-button mdl-js-button mdl-button--raised">{% trans 'Save and add another' %}</button>
+        </div>
+        {% endif %}
+        {% if show_save_and_continue %}
+        <div class="mdl-cell mdl-cell--3-col">
+            <button type="submit" name="_continue" class="default mdl-button mdl-js-button mdl-button--raised">{% trans 'Save and continue editing' %}</button>
+        </div>
+        {% endif %}
+        {% if show_save_as_new %}
+        <div class="mdl-cell mdl-cell--3-col">
+            <button type="submit" name="_saveasnew" class="default mdl-button mdl-js-button mdl-button--raised">{% trans 'Save as new' %}</button>
+        </div>
+        {% endif %}
+        {% if show_delete_link %}
+        <div class="mdl-cell mdl-cell--1-col mdl-cell--5-offset float-right">
+            {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
+            <p class="deletelink-box"><a href="{% add_preserved_filters delete_url %}" class="deletelink mdl-button">{% trans "Delete" %}</a></p>
+        </div>
+        {% endif %}
+</div>

@@ -1,0 +1,232 @@
+{% load i18n admin_static %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+<html lang="{{ LANGUAGE_CODE|default:"pt-br" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- CSS Material Lite -->
+         <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.blue_grey-indigo.min.css" />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- ESSE CSS ESTAVA SUBESCREVENDO O CSS CUSTOMIZADO DO MATERIAL DESIGN -->
+        <!-- <link rel='stylesheet' href="{% static 'interface_material/css/material.min.css' %}" type="text/css"/> -->
+
+        <link rel="stylesheet" href="{% static 'interface_material/css/base.css' %}">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        {% if LANGUAGE_BIDI %}
+            <link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}"/>
+        {% endif %}
+        <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+        <script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+
+        {% block extrahead %}{% endblock %}
+
+        {% block blockbots %}
+            <meta name="robots" content="NONE,NOARCHIVE"/>
+        {% endblock %}
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <!-- <meta name="mobile-web-app-capable" content="yes"> -->
+        <!-- <link rel="icon" sizes="192x192" href="images/android-desktop.png"> -->
+
+        <!-- Add to homescreen for Safari on iOS -->
+        <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+        <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+        <!-- <meta name="apple-mobile-web-app-title" content="Material Design Lite"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png"> -->
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
+        <!-- <meta name="msapplication-TileColor" content="#3372DF"> -->
+
+        <!-- <link rel="shortcut icon" href="images/favicon.png"> -->
+
+        <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+        <!--
+        <link rel="canonical" href="http://www.example.com/">
+        -->
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+
+        <style>
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+        </style>
+    </head>
+
+    <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+
+        <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <!--  -->
+            {% if user.is_authenticated %}
+
+                {% if not is_popup %}
+                    <header class="demo-header mdl-layout__header mdl-color--primary">
+                        <div class="mdl-layout__header-row">
+                            <span class="mdl-layout-title">
+                                <div id="branding">
+                                    {% block branding %}{% endblock %}
+                                </div>
+                                {% block nav-global %}{% endblock %}
+                            </span>
+
+                            <div class="mdl-layout-spacer"></div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                                    <i class="material-icons">search</i>
+                                </label>
+
+                                <div class="mdl-textfield__expandable-holder">
+                                    <input class="mdl-textfield__input" type="text" id="search">
+                                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                                </div>
+                            </div>
+                             {% block usertools %}
+
+                                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                                        {% if has_permission %}
+                                            <!-- <li class="mdl-menu__item">About</li> -->
+                                            {% if user.has_usable_password %}
+                                                <li class="mdl-menu__item">
+                                                    <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endif %}
+                                        <li class="mdl-menu__item">
+                                            <a href="{% url 'logout' %}">{% trans 'Log out' %}</a>
+                                        </li>
+
+                                    </ul>
+                            {% endblock %}
+                        </div>
+                    </header>
+
+                    <!-- MENU LATERAL -->
+                    <div class="demo-drawer mdl-layout__drawer" id="menu-drawer">
+                      <span class="mdl-layout-title">Menu</span>
+                        <header class="demo-drawer-header">
+                                <!-- <img src="images/user.jpg" class="demo-avatar"> -->
+
+                            <div class="demo-avatar-dropdown">
+                                <span>hello@example.com</span>
+
+                                <div class="mdl-layout-spacer"></div>
+                                <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                                    <i class="material-icons" role="presentation">arrow_drop_down</i>
+                                    <span class="visuallyhidden">Accounts</span>
+                                </button>
+                                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                                    <li class="mdl-menu__item">hello@example.com</li>
+                                    <li class="mdl-menu__item">info@example.com</li>
+                                    <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+                                </ul>
+                            </div>
+                        </header>
+                        <nav class="demo-navigation mdl-navigation">
+                            {% if adm_app_list %}
+                              <ul class='mdl-list' id="ul-apps-menu-drawer">
+                                {% for app in adm_app_list %}
+                                  <li class="mdl-list__item mdl-list__item--two-line">
+                                    <span class="mdl-list__item-primary-content">
+                                      <i class="material-icons mdl-list__item-icon">person</i>
+                                      <span> {{ app.name }} </span>
+                                      <span class="mdl-list__item-sub-title">
+                                        <nav class="mdl-navigation">
+                                          {% for model in app.models %}
+                                            <a class="mdl-navigation__link" href="{{ model.admin_url }}">{{ model.name }}</a>
+                                          {% endfor %}
+                                        </nav>
+                                      </span>
+                                    </span>
+                                  </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                                <!-- <a class="mdl-navigation__link" href="">
+                                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>
+                                    Inbox
+                                </a> -->
+
+                            <div class="mdl-layout-spacer"></div>
+                            <a class="mdl-navigation__link" href="">
+                                <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
+                                <span class="visuallyhidden">Help</span>
+                            </a>
+                        </nav>
+                    </div>
+                    <!-- FIM MENU LATERAL  -->
+                {% endif %}
+            {% endif %}
+
+            <main class="mdl-layout__content mdl-color--grey-100">
+                <div class="breadcrumbs-container mdl-color--primary-dark">
+                    {% block breadcrumbs %}
+
+                    {% endblock %}
+                </div>
+
+                <div class="mdl-grid demo-content">
+                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" style="padding:0;">
+                        <div class="mdl-card__title" style="background-color: #f8f8f8; margin:0 !important; display: block; width:100%;">
+                            <div class="mdl-grid grid-no-margin">
+                              <div class="mdl-cell mdl-cell--8-col">
+                                  <h2 class="mdl-card__title-text">
+                                      {% block card-title %}{% endblock %}
+                                  </h2>
+                              </div>
+                              {% if not is_popup %}
+                              <div class="mdl-cell mdl-cell--4-col float-right">
+                                  {% block card-menu-title %}{% endblock %}
+                              </div>
+                              {% endif %}
+                            </div>
+                        </div>
+                        <div class="mdl-card__supporting-text" style="width:100%;">
+                            {% block card-content %}{% endblock %}
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <div class="mdl-grid mdl-grid-no-margin">
+                                <div class="mdl-cell mdl-cell--10-col">
+                                    {% block card-action-bar %}{% endblock %}
+                                </div>
+                                <div class="mdl-cell mdl-cell--2-col float-right">
+                                    <span class="float-right span-date">
+                                        {% now "d \d\e  F \d\e Y \- H:i" %}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!-- JS Material Lite  -->
+        <script src="{% static 'admin/js/jquery.js' %}"></script>
+        <script src="{% static 'interface_material/js/material.min.js' %}"></script>
+        <script src="{% static 'interface_material/js/base.js' %}"></script>
+        {% block extrajs %}{% endblock %}
+    </body>
+</html>

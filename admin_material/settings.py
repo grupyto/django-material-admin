@@ -29,18 +29,20 @@ SECRET_KEY = '4!6mbpllf%zwwn0de8ura!@bxrji-2@pfn_)d*odg$6-f-yo9a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'interface_material',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'demo',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -73,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
+                'interface_material.processors.applist',
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
