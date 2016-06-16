@@ -1,5 +1,3 @@
-# README #
-
 Django admin using framework https://getmdl.io/ (Material Design Lite)
 
 ### Requirements ###
