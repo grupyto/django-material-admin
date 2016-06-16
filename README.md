@@ -12,4 +12,5 @@ Django admin using framework https://getmdl.io/ (Material Design Lite)
 * Add into the INSTALLED_APPS before 'django.contrib.admin' **'interface_material'**,
 * Run pip install -r requirements.txt
 * Copy and paste interface_material in your project
-* **Option**: copy and paste demo dir in your project for view
+
+### Demo app ###
